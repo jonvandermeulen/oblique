@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_slack import Slack
-from rdoclient import RandomOrgClient as rorgcli
 import os
+import random
 
 app = Flask(__name__)
 slack = Slack(app)
@@ -12,18 +12,11 @@ randokey = os.getenv('RANDOMORG_KEY')
 team = os.getenv('SLACKTEAM')
 
 
-def random_client():
-    rnd = rorgcli(randokey)
-    return rnd
-
-rnd = random_client()
-
-
 def strategy():
     with open('oblique.txt', 'r') as ost:
         strats = ost.readlines()
         length = len(strats)
-    idx = rnd.generate_integers(1, 0, length)
+    idx = random.randint(0, length)
     strat = strats[idx[0]].strip()
     return strat
 
@@ -32,7 +25,7 @@ def acute():
     with open('acute.txt', 'r') as ost:
         acutes = ost.readlines()
         length = len(acutes)
-    idx = rnd.generate_integers(1, 0, length)
+    idx = random.randint(0, length)
     strat = acutes[idx[0]].strip()
     return strat
 
