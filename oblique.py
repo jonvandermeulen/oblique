@@ -44,7 +44,10 @@ def acute():
 def oblique(**kwargs):
     strat = strategy()
     acu = acute()
-    message = '%s\n%s' % (strat, acu)
+    if kwargs.text= 'dev':
+        message = '%s\n' % (acu)
+    else:
+        message = '%s\n' % (strat)
     return message
     return slack.response(message)
 
