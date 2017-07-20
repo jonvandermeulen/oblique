@@ -49,7 +49,6 @@ def oblique(**kwargs):
         message = '%s\n' % (acu)
     else:
         message = '%s\n' % (strat)
-    return message
     return slack.response(message)
 
 
