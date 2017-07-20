@@ -40,7 +40,7 @@ def acute():
 @slack.command('oblique',
                token=slacktoken,
                team_id=team,
-               methods=['POST'])
+               methods=['POST','GET'])
 def oblique(**kwargs):
     text = kwargs.get('text')
     strat = strategy()
@@ -50,13 +50,6 @@ def oblique(**kwargs):
     else:
         message = '%s\n' % (strat)
     return slack.response(message)
-
-
-# strategy text url - for backward compatibility
-@app.route('/strategy')
-def strategy_txt():
-    strat = strategy() + '\n'
-    return strat
 
 # oblique text url
 @app.route('/oblique')
