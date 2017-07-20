@@ -17,7 +17,7 @@ def strategy():
         strats = ost.readlines()
         length = len(strats)
     idx = random.randint(0, length)
-    strat = strats[idx[0]].strip()
+    strat = strats[idx].strip()
     return strat
 
 
@@ -26,8 +26,8 @@ def acute():
         acutes = ost.readlines()
         length = len(acutes)
     idx = random.randint(0, length)
-    strat = acutes[idx[0]].strip()
-    return strat
+    acu = acutes[idx].strip()
+    return acu
 
 
 @slack.command('oblique',
