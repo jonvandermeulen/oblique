@@ -42,9 +42,10 @@ def acute():
                team_id=team,
                methods=['POST'])
 def oblique(**kwargs):
+    text = kwargs.get('text')
     strat = strategy()
     acu = acute()
-    if kwargs.text= 'dev':
+    if text == 'dev':
         message = '%s\n' % (acu)
     else:
         message = '%s\n' % (strat)
