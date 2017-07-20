@@ -28,14 +28,13 @@ def strategy():
     return strat
 
 
-def i_ching():
-    with open('iching-title.txt', 'r') as i:
-        chis = i.readlines()
-    idx = rnd.generate_integers(1, 0, 63)
-    hexagram = chis[idx[0]].strip()
-    hexagram_no = idx[0] + 1
-    url = 'http://www.akirarabelais.com/i/i.html#%s' % hexagram_no
-    return {'hexagram': hexagram, 'url': url}
+def acute():
+    with open('acute.txt', 'r') as ost:
+        acutes = ost.readlines()
+        length = len(acutes)
+    idx = rnd.generate_integers(1, 0, length)
+    strat = acutes[idx[0]].strip()
+    return strat
 
 
 @slack.command('oblique',
@@ -44,29 +43,29 @@ def i_ching():
                methods=['POST'])
 def oblique(**kwargs):
     strat = strategy()
-    iching = i_ching()
-    url = iching['url']
-    hexagram = iching['hexagram']
-    message = '%s\n <%s|%s>' % (strat, url, hexagram)
+    acu = acute()
+    message = '%s\n%s' % (strat, acu)
     return message
     return slack.response(message)
 
 
-# strategy text url
+# strategy text url - for backward compatibility
 @app.route('/strategy')
 def strategy_txt():
     strat = strategy() + '\n'
     return strat
 
+# oblique text url
+@app.route('/oblique')
+def oblique_txt():
+    strat = strategy() + '\n'
+    return strat
 
-# iching text url
-@app.route('/i_ching')
-def i_ching_txt():
-    iching = i_ching()
-    hexagram = iching['hexagram']
-    url = url = iching['url']
-    i_ching_md = '[%s](%s)' % (hexagram, url)
-    return i_ching_md
+# acute text url
+@app.route('/acute')
+def acute_txt():
+    acu = acute() + '\n'
+    return acu
 
 
 if __name__ == '__main__':

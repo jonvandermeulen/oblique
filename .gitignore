@@ -25,3 +25,6 @@ junk_drawer/
 .env.file
 .env.shsetenv.sh
 oblique-secret.yml
+
+# Cloud Foundry
+manifest*.yml

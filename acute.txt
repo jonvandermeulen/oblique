@@ -1,0 +1,39 @@
+Accept advice.
+Add more eyes.
+Are you clear about what you are trying to build?
+Are you fooling yourself?
+Are you getting confused by the complexities of your own making?
+Are you solving the problem you have or the problem you'd like to have?
+Before it can be reusable it first has to be usable.
+Break a big thing up into smaller pieces.
+Can you automate this?
+Consider the possibility of side effects.
+Deleted code is debugged code.
+Do it in pseudocode.
+Don't invent another data format.
+Draw a picture of the problem with coloured pens.
+Faced with a choice, do both things.
+Find a library that does it.
+Have you switched it off and back on again?
+If it doesn't work, it doesn't matter how fast it doesn't work.
+If you are thinking and not writing, you only think you are thinking.
+Ignore the problem and work on something else for a while.
+Imagine a day in the life of the user.
+Is it broken by design?
+Is this abstraction delivering enough benefit?
+Is this premature optimization?
+Make an exhaustive list of everything you might do next. Do it backwards.
+Make an ugly version where all the things work.
+Make it do one thing instead of two?
+Make it worse, then start over.
+Read the documentation properly. Read it again.
+Recreate this section from scratch.
+Remember that models don't necessarily correspond with reality.
+Solve the easiest possible problem in the dumbest possible way.
+Stand in front of a big blank whiteboard with a pen. Start writing.
+Stop guessing and look at the facts.
+Take a break.
+What would this look like in another language?
+Write a plan then throw it away.
+Write down, in paragraph form, absolutely everything you know about the problem
+Write more tests.
