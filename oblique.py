@@ -12,7 +12,7 @@ randokey = os.getenv('RANDOMORG_KEY')
 team = os.getenv('SLACKTEAM')
 
 
-def strategy():
+def obl_strategy():
     with open('oblique.txt', 'r') as ost:
         strats = ost.readlines()
         length = len(strats)
@@ -21,7 +21,7 @@ def strategy():
     return strat
 
 
-def acute():
+def acu_strategy():
     with open('acute.txt', 'r') as ost:
         acutes = ost.readlines()
         length = len(acutes)
@@ -36,24 +36,32 @@ def acute():
                methods=['POST','GET'])
 def oblique(**kwargs):
     text = kwargs.get('text')
-    strat = strategy()
-    acu = acute()
-    if text == 'dev':
-        message = '%s\n' % (acu)
-    else:
-        message = '%s\n' % (strat)
+    strat = obl_strategy()
+    message = '%s\n' % (strat)
     return slack.response(message)
 
+
+@slack.command('acute',
+               token=slacktoken,
+               team_id=team,
+               methods=['POST', 'GET'])
+def acute(**kwargs):
+    strat = acu_strategy()
+    message = '%s\n' % (strat)
+    return slack.response(message)
+
+
 # oblique text url
-@app.route('/oblique')
+@app.route('/oblique', methods=['GET', 'POST'])
 def oblique_txt():
-    strat = strategy() + '\n'
+    strat = obl_strategy() + '\n'
     return strat
 
+
 # acute text url
-@app.route('/acute')
+@app.route('/acute', methods=['GET', 'POST'])
 def acute_txt():
-    acu = acute() + '\n'
+    acu = acu_strategy() + '\n'
     return acu
 
 
